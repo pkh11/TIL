@@ -1,0 +1,17 @@
+1. 배열
+  (1) 정적선언 (사전에 미리 배열의 크기, 값 초기화)
+    var cities = ["Seoul", "LA", "Tokyo", "NW", "Busan"]
+    
+  (2) 동적선언 (동적으로 데이터 추가, 배열 크기 조절)
+    var cities = Array<String>()
+    -> var cities = [String]() 스위프트 GM버전.
+    
+  (3) 선언&초기화
+    - 선언 : var cities : [String]
+    - 선언&초기화 : var cities : [String]
+    
+  (4) 배열확장
+    append(_:) = 맨뒤 추가
+    insert(_:at:) = at: 뒤에 나오는 인덱스에 추가
+    append(contentsOf:) = 추가되는 값이 여러개일때
+    
