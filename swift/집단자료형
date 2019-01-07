@@ -49,5 +49,32 @@
      d // 2.5
      e // true
      
-     
+ 4. 딕셔너리
+   - (JAVA) HashMap 객체와 유사. 
+   - key : value 의 구조
+   
+   (1) 선언&초기화
+     //방법1. (Dictionary 키워드 사용)
+      var type1 = Dictionary<String, Int>()
+     //방법2.
+      var type2 = [String : Int]()
       
+   (2) 관련 메소드
+     //데이터 추가
+      updateValue("값", forKey:"키")
+      removeValue(forKey:"키")
+      isEmpty : 데이터 유무 체크 true/false
+      count : 데이터 개수 확인
+    
+   (3) 순회 탐색
+      //방법1.
+      for row in capital {
+        let (key, value) = row
+      }
+      //방법2.
+      for (key, value) int capital {
+        //
+      }
+      
+    
+    
