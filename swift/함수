@@ -1,0 +1,81 @@
+[함수의 기본 구조]
+//선언
+func 함수이름(매개변수1:타입, 매개변수2:타입,...) -> 리턴값 {
+    실행내용
+    return 리턴값
+}
+
+//호출
+함수이름()
+
+//매개변수(외부변수, 내부변수)
+(1) 내부변수 사용
+    func A(name: String, age: Int){
+        print("이름은 \(name)이고, 나이는 \(age)입니다.")
+    }
+
+    A(name:"PKH", age:10) / name, age = 내부변수
+
+(2) 외부변수 사용
+    func B(to name: String, realAge age: Int){
+        print("이름은 \(name)이고, 나이는 \(age)입니다.")
+    }
+    
+    B(to:"PKH", realAge:10) / to, realAge = 외부변수
+    
+(3) '_' 키워드를 통한 외부변수 선언 생략
+    func C(_ name: String, _ age: Int){
+        print("이름은 \(name)이고, 나이는 \(age)입니다.")    
+    }
+    
+    C("PKH",10) / 함수 호출 시, 외부변수명 생략 
+
+[일급객체로서의 함수]
+(조건)
+1. 객체가 런타임에도 생성이 가능해야 한다.
+2. 인자값으로 객체를 전달할 수 있어야 한다.
+3. 반환값으로 객체를 사용할 수 있어야 한다.
+4. 변수나 데이터 구조 안에 저장할 수 있어야 한다.
+5. 할당에 사용된 이름과 관계없이 고유한 구별이 가능해야 한다.
+
+-> 함수형 언어로 분류되고 (조건)에 나온 내용과 같은 역할이 가능해짐
+
+//변수나 상수에 대입
+case1. 
+func foo(base: Int) -> String{
+    print("함수 foo가 실행됩니다.")
+    return "결과값은 \(base)입니다."
+}
+let fn1 = foo(base: 1)
+-> foo함수의 결과값을 fn1이라는 상수에 대입.
+
+case2.
+let fn2 = foo
+fn2(2)
+-> foo함수 자체가 fn2라는 상수에 대입. fn2가 곧 foo함수.
+
+//함수의 반환타입으로 함수를 사용
+func desc() -> String{
+    return "This is desc()"
+}
+
+func pass() -> () -> String{
+    return desc
+}
+
+let p = pass()
+p()
+
+//함수의 인자값으로 함수를 사용
+func incr(param: Int) -> {
+    return param + 1
+}
+
+func broker(base: Int, function fn: (Int) -> Int) -> Int {
+    return fn(base)
+}
+
+broker(base: 3, functioin: incr) 
+
+
+
