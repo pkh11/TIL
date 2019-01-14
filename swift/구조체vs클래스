@@ -1,0 +1,45 @@
+[구조체VS클래스]
+
+*공통
+(1) 프로퍼티 : 변수나 상수를 저장
+(2) 메소드 : 함수를 사용하여 기능 제공
+(3) 서브스크립트 : 
+(4) 초기화 블록 : 생성자
+(5) 확장 : 객체에 함수적 기능을 추가하는 확장(extends)구문 사용
+(6) 프로토콜 : 인터페이스의 기능(기능에 대한 가이드만 제공, 구현부X)
+
+*클래스 
+(1) 상속 : 다른 클래스의 기능을 물려받음
+(2) 타입 캐스팅 
+(3) 소멸화 구문
+(4) 참조에 의한 전달
+
+//1. 인스턴스 생성
+struct Resolution{
+    var width = 0
+    var height = 0
+
+    func desc() -> String {
+        return "Resolution 구조체"
+    }
+}
+
+class VideoMode{
+    var interlaced = false
+    var frameRate = 0.0
+    var name : String?
+
+    var res = Resolution()
+
+    func desc() -> String{
+        return "VideMode 클래스"
+    }
+}
+
+let res = Resolution() // 구조체 인스턴스 생성
+let vm = VideoMode() //클래스 인스턴스 생성
+
+//2. 초기화
+Resolution()
+Resolution(width: Int, height: Int)
+
