@@ -43,3 +43,29 @@ let vm = VideoMode() //클래스 인스턴스 생성
 Resolution()
 Resolution(width: Int, height: Int)
 
+//3. 구조체의 값 전달 방식 : 복사에 의한 전달
+
+let hd = Resolution(width:1920, height:1080)
+var cinema = hd
+
+cinema.width = 2048 
+
+print(cinema.width) // 2048
+print(hd.width) // 1920
+
+//4. 클래스의 값 전달 방식 : 참조에 의한 전달
+let video = VideoMode()
+video.name = "Original Video Instance"
+print(video.name) // Original Video Instance
+
+let dvd = video
+dvd.name = "DVD Video Instance"
+print(dvd.name) // DVD Video Instance
+
+* 클래스 : 참조 타입이기 때문에 한 곳에서 수정할 경우 다른 곳에도 적용되는 특징
+           메모리에 대한 이슈 문제 발생
+           인스턴스를 해체해버리면 아직 참조하고 있는 변수, 상수, 함수 인자값은 잘못된 메모리 참조로 오류 발생
+  구조체 : 값의 할당이기 때문에 단일 참조. 
+  
+  
+
