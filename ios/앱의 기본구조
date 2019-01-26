@@ -1,0 +1,41 @@
+[앱의 기본구조]
+
+#Entry Point
+
+- 스위프트에서는 UIApplicationMain()가 엔트리 포인트이다. (UIApplicationMain()함수가 생성한 객체가 UIApplication)
+- 엔트리 포인트의 역할은 운영체제가 해당 애플리케이션 내부에 정의된 메인함수를 찾아 여기에 작성된 코드를 연쇄적으로 실행하면서 애플리케이션을 구동.
+- 오브젝트C와는 달리, @UIApplicationMain()이라는 어노테이션 사용.
+- AppDelegate라는 대리인을 통해 커스텀 코드를 처리.
+- UIApplication 객체와 AppDelegate를 나눠놓은 이유 : 
+  UIApplication은 앱 생명주기, 이벤트 처리 등 중요한 일 처리 / AppDelegate는 커스텀 코드 처리 
+  
+  
+#MVC 패턴
+
+Model : 데이터 담당
+View : 사용자에게 데이터에 대한 화면표현을 담당
+Controller : 모델과 뷰사이의 데이터 가공하여 뷰로 전달, 뷰로부터 발생하는 이벤트를 입력받아 처리
+
+#앱의 상태변화
+
+앱이 실행되는 동안 화면에 보여지거나, 숨겨져있거나, 종료됨에 따라 상태가 다름.
+
+Not Running : 앱이 시작되지 않았거나 실행되었지만 종료된 상태
+Inactive : 앱이 실행중이고 아무 이벤트를 받지 않는 상태
+Activce : 앱이 실행중이고 이벤트를 받고 있는 상태
+Background : 앱이 백그라운드에 있지만 여전히 코드가 실행되고 있는 상태, 다운로드나 업로드, 연산처리 등 시간이 필요한 작업일 경우 이 상태로 남아있음
+Suspend : 앱이 메모리에 유지되지만 실행되는 코드가 없는 상태
+
+-> 앱의 상태변화에 따라 AppDelegate는 정의된 특정 메소드를 호출
+
+application(_ didFinishLaunchingWithOptions:)
+
+applicationWillResignActive(_ application: UIApplication)
+
+applicationDidEnterBackground(_ application: UIApplication) 
+
+applicationWillEnterForeground(_ application: UIApplication) 
+
+applicationDidBecomeActive(_ application: UIApplication) 
+
+applicationWillTerminate(_ application: UIApplication) 
