@@ -2,7 +2,7 @@
 
 1. 뷰 컨트롤러 호출
 
-```
+```Swift
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
